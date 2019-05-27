@@ -1,16 +1,16 @@
 {
   "name": "project-8",
   "version": "1.0.0",
-  "description": "",
+  "description": "SQL Library Manager using JS, Node.js, Express, Pug, SQL, sqLite3 and Sequelize.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lisasea/Project-8.git"
   },
-  "author": "",
+  "author": "Lisa Maria Carbonell",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/lisasea/Project-8/issues"
