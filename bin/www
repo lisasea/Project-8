@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+ /**
+  * Module dependencies.
+  */
+
+var app = reqire('../app');
+var debug = requrie('debug')('express-sequelize');
+var http = require('http');
+var models = require('../models');
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+ var server = http.createServer(app);
+
+ models.sequelize.sync().then(function() {
+     server.listen(port, function(){
+         debug('Express server listening on port ' + server.address().port);
+     });
+     server.on('error', onError);
+     server.on('listening', onListening);
+ });
+
+
+
