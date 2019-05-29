@@ -1,11 +1,11 @@
 var express = require('express');
-var router = express.Roputer();
+var router = express.Router();
 var Book = require("../models").Book;
 var Sequelize = require('sequelize');
 var Op = Sequelize.Op;
 
 /*
-get / - Home route should redirect to the /books route.
+XX get / - Home route should redirect to the /books route.
 get /books - Shows the full list of books.
 get /books/new - Shows the create new book form.
 post /books/new - Posts a new book to the database.
