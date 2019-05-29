@@ -16,11 +16,28 @@ router.get('/new-book', function(req, res, next) { //shows the create new book f
     res.render("books/new-book", {book: {}, title: "New Book"});
 });
 
+router.post('/', function(req, res, next) { //posts a new book to the database
+    Book.create(req.body).then(function(book){
+        res.redirect("/books/") //does this need a ;?
+    }).catch(function(error){
+        if(error.name === "SequelizeValidationError") {
+            res.render("books/new-book", {
+                book: Book.build(req.body),
+                errors: error.errors,
+                title: "New Book"})
+        } else {
+            throw error;
+        }
+    }).catch(function(error){
+        res.send(500, error);
+    });
+});
+
 
 /*
 XX get / - Home route should redirect to the /books route.
 XX get /books - Shows the full list of books.
-get /books/new - Shows the create new book form.
+XX get /books/new - Shows the create new book form.
 post /books/new - Posts a new book to the database.
 get /books/:id - Shows book detail form.
 post /books/:id - Updates book info in the database.
