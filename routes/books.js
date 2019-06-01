@@ -1,4 +1,4 @@
-    var express = require('express');
+var express = require('express');
 var router = express.Router();
 var Book = require("../models").Book;
 var Sequelize = require('sequelize');
@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) { //shows the full list of books
     Book.findAll({order: [["Year", "DESC"]]}).then(function(books){
         res.render("books/index", {books: books, title: "Books"});
     }).catch(function(error){
-        res.send(500,error);
+        res.send(500,error)
     });
 });
 
