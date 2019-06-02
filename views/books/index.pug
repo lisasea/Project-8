@@ -1,22 +1,25 @@
 extends layout.pug
 
 block content
-    h1= title
-    p
-        a(class="button" href="/books/new-book") Create New Book
-         table
-           thead
-             tr
-               th Title
-               th Author
-               th Genre
-               th Year
+  h1= title
 
-               tbody
-                    each book in books
-                      tr
-                        td
-                          a(href="/books/" + book.id + "/update-book"= book.title)
-                          td= book.author
-                          td= book.genre
-                          td= book.year
+  include errors.pug
+
+  form(action="/books", method="post")
+    p
+      label(for="author") Author:
+      input(type="text", name="author, id="author)
+    p
+      label(for="genre") Genre:
+      input(type="text", name="genre, id="genre)
+    p
+      label(for="year") Year:
+      input(type="text", name="year, id="year)
+    p
+      label(for="title") Title:
+      input(type="text", name="title, id="title)
+    p
+      input(type="submit", value="Create New Book")
+    p
+      a(href="/books", class="button") Cancel
+ 
