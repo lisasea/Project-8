@@ -8,18 +8,18 @@ block content
   form(action="/books", method="post")
     p
         label(for='title') Title
-        input(name='title', id = 'title', type='text')
+        input(name='title', id='title', type='text', value=book.title)
     p
-        label(for='title') Title
-        input(name='title', id = 'title', type='text')
+        label(for='author') Author
+        input(name='author', id='author', type='text', value=book.author)
     p
-        label(for='title') Title
-        input(name='title', id = 'title', type='text')
+        label(for='genre') Genre
+        input(name='genre', id='genre', type='text', value=book.genre)
     p
-        label(for='title') Title
-        input(name='title', id = 'title', type='text')
+        label(for='year') Year
+        input(name='year', id='year', type='text', value=book.year)
     p
-        label(for='title') Title
-        input(name='title', id = 'title', type='text')
+        input(type='submit', value='Create New Book')
     p
       a.button(href='/') Cancel
+      //- a(href='/books/, class='button') Cancel
