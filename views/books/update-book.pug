@@ -1,0 +1,22 @@
+extends layout
+
+block content
+
+    form(action="/books" + book.id + "?method=PUT", method="post")
+    p
+        label(for='title') Title
+        input(name='title', id = 'title', type='text', value = book.title)
+    p
+        label(for='author') Author
+        input(name='author', id = 'author', type='text', value = book.author)
+    p
+        label(for='genre') Genre
+        input(name='genre', id = 'genre', type='text', value = book.genre)
+    p
+        label(for='year') Year
+        input(name='year', id = 'year', type='text', value = book.year)
+    p
+        label(for='title') Title
+        input(name='title', id = 'title', type='text')
+    p
+      a.button(href='/') Cancel
