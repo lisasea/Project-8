@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1= title
+
+  include errors
+
+  form(action="/books", method="post")
+    p
+        label(for='title') Title
+        input(name='title', id = 'title', type='text')
+    p
+        label(for='title') Title
+        input(name='title', id = 'title', type='text')
+    p
+        label(for='title') Title
+        input(name='title', id = 'title', type='text')
+    p
+        label(for='title') Title
+        input(name='title', id = 'title', type='text')
+    p
+        label(for='title') Title
+        input(name='title', id = 'title', type='text')
+    p
+
+      a.button(href='/') Cancel
