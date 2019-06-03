@@ -12,13 +12,13 @@ router.get('/', function(req, res, next) { //shows the full list of books
     });
 });
 
-router.get('/new-book', function(req, res, next) { //shows the create new book form
+router.get('/new-book', function(req, res, next) { //shows the create new book form 
     res.render("books/new-book", {book: {}, title: "New Book"})
 });
 
-router.post('/', function(req, res, next) { //posts a new book to the database
+router.post('/', function(req, res, next) { // should it be '/' Not '/new'? //posts a new book to the database
     Book.create(req.body).then(function(book){
-        res.redirect("/books/") //does this need a ;?
+        res.redirect("/books/" + book.id); //does this need a ; // is "/books enough?
     }).catch(function(error){
         if(error.name === "SequelizeValidationError") {
             res.render("books/new-book", {
@@ -36,9 +36,9 @@ router.post('/', function(req, res, next) { //posts a new book to the database
 router.get("/:id", function(req, res, next) { //books/:id - shows book detail form
     Book.findByPk(req.params.id).then(function(book){
         if(book) {
-            res.render("books/update-book", { book: book, title: book.title })
+            res.render("books/update-book", { book: book, title: book.title });
         } else {
-            res.render("Book Not Found", { book: {}, title: "Book Not Found"})
+            res.render("Book Not Found", { book: {}, title: "Book Not Found"});
         }
     }).catch(function(error){
         res.send(500, error)
@@ -53,12 +53,12 @@ router.put("/:id", function(req, res, next) { // post /books/:id - update book i
             res.send(404, error)
         }
     }).then(function(book) {
-        res.redirect("/books") // ?? ("/books/")
+        res.redirect("/books" + book.id); // ?? ("/books/")
     }).catch(function(error) {
         if(error.name === "SequelizeValidationError") {
-          var book = book.build(req.body);
+          var book = Book.build(req.body);
           book.id = req.params.id;
-          res.render("books/update-book", { book: book, title: "Update Book", errors: error.errors }) 
+          res.render("books/update-book", { book: book, title: "Update Book", errors: error.errors }); 
         } else {
             throw error
         }
@@ -80,6 +80,8 @@ router.delete("/:id", function(req, res, next) { //post /books/:id/delete - Dele
             res.send(500, error)
         });
     });
+
+    module.exports = router;
 
     /*
 XX get / - Home route should redirect to the /books route.
