@@ -4,7 +4,8 @@
   "description": "SQL Library Manager using JS, Node.js, Express, Pug, SQL, sqLite3 and Sequelize.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "test": "echo\"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -24,3 +25,4 @@
     "sqlite3": "^4.0.8"
   }
 }
+
