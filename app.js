@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const morganLogger = require('morgan');
 const methodOverride = require('method-override');
-const books = require('./routes/book');
+const books = require('./routes/books');
 const routes = require('./routes/index');
 const app = express();
 
