@@ -3,20 +3,20 @@ module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define('Book', {
     title: {
       type: DataTypes.STRING,
-      validate: {
-        notEmpty: {msg: "Title is required"}
-      }
+      validate: {notEmpty: {msg: "Title is required"}}
     },
     author: {
       type: DataTypes.STRING,
-      validate: {
-        notEmpty: {msg: "Author is required"}
-      }
+      validate: {notEmpty: {msg: "Author is required"}}
     },
-    genre: DataTypes.STRING,
-    year: DataTypes.INTEGER, //should this be DataTypes.STRING ?
-      validate: { notEmpty: {msg: "Year is required"}}
-  }, { sequelize }); //is { sequelize } right?
+    genre: {
+      type: DataTypes.STRING,
+    },
+    year: {
+      type: DataTypes.INTEGER, //should this be DataTypes.STRING ?
+    }, 
+  },
+  );
   Book.associate = function(models) {
     // associations can be defined here
   };
