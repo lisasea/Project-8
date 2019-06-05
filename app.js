@@ -30,12 +30,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/books', books);
 
-/**************** 
-* Error Handler *
-****************/
+/***************** 
+* Error Handlers *
+*****************/
 
 app.use((req, res, next) => {
-    res.render('page-not-found');
+    res.render('Page Not Found');
     res.status(404);
 });
 
