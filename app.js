@@ -12,7 +12,7 @@ const app = express();
 /**************** 
 *  Middleware   *
 ****************/
-app.set('views', path.join(_dirname, 'views')); // set-up view engine 
+app.set('views', path.join(__dirname, 'views')); // set-up view engine 
 app.set('view engine', 'pug');
 
 app.use(methodOverride('_method'));
@@ -20,7 +20,7 @@ app.use(morganLogger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(cookieParser());
-app.use(express.static(path.join(_dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 /**************** 
