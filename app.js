@@ -35,7 +35,7 @@ app.use('/books', books);
 *****************/
 
 app.use((req, res, next) => {
-    res.render('Page Not Found');
+    res.render('books/page-not-found');
     res.status(404);
 });
 
