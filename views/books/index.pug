@@ -1,25 +1,10 @@
 extends layout.pug
 
 block content
-  h1= title
-
-  include errors.pug
-
-  form(action="/books", method="post")
+  div.container.fluid
+    h1 Books  
     p
-      label(for="author") Author:
-      input(type="text", name="author, id="author)
-    p
-      label(for="genre") Genre:
-      input(type="text", name="genre, id="genre)
-    p
-      label(for="year") Year:
-      input(type="text", name="year, id="year)
-    p
-      label(for="title") Title:
-      input(type="text", name="title, id="title)
-    p
-      input(type="submit", value="Create New Book")
-    p
-      a(href="/books", class="button") Cancel
- 
+      form(action="/books/search", method="GET")
+        input(placeholder="Search for a book...", type="text", name="search")
+        input(type="submit", value="Search, id="searchButton")
+    
