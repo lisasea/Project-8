@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) { //shows the full list of books
     });
 });
 
-router.get('/books/new', function(req, res, next) { //create new book form 
+router.get('/new', function(req, res, next) { //create new book form 
     res.render("books/new-book", {book: {}, title: "New Book"})
 });
 
