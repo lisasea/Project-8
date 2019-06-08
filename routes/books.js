@@ -38,7 +38,7 @@ router.get("/:id", function(req, res, next) { //books/:id - shows book detail fo
         if(book) {
             res.render("books/update-book", { book: book, title: book.title });
         } else {
-            res.render("page-not-found", { book: {}, title: "Page Not Found"});
+            res.render("books/page-not-found", { book: {}, title: "Page Not Found"});
         }
     }).catch(function(error){
         res.send(500, error)
@@ -53,7 +53,7 @@ router.put("/:id", function(req, res, next) { // post /books/:id - update book i
             res.send(404, error)
         }
     }).then(function(book) {
-        res.redirect("/books" + book.id); // ?? ("/books/")
+        res.redirect("/books/" + book.id); // ?? ("/books/")
     }).catch(function(error) {
         if(error.name === "SequelizeValidationError") {
           var book = Book.build(req.body);

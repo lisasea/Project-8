@@ -4,7 +4,7 @@ block content
 
     include errors
 
-    form(action="/books/" + book.id + "?method=PUT", method="post")
+    form(action="/books/" + book.id + "?_method=PUT", method="post")
         p
             label(for="title") Title
             input(name="title", id="title", type="text", value=book.title)
