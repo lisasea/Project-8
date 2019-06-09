@@ -18,7 +18,7 @@ router.get('/new', function(req, res, next) { //create new book form
 
 router.post('/', function(req, res, next) { // should it be '/' Not '/new'? //posts a new book to the database
     Book.create(req.body).then(function(book){
-        res.redirect("/books/" + book.id); //does this need a ; // is "/books enough?
+        res.redirect("/books/"); //does this need a ; // is "/books enough?
     }).catch(function(error){
         if(error.name === "SequelizeValidationError") {
             res.render("books/new-book", {
@@ -53,7 +53,7 @@ router.put("/:id", function(req, res, next) { // post /books/:id - update book i
             res.send(404, error)
         }
     }).then(function(book) {
-        res.redirect("/books/" + book.id); // ?? ("/books/")
+        res.redirect("/books"); // ?? ("/books/")
     }).catch(function(error) {
         if(error.name === "SequelizeValidationError") {
           var book = Book.build(req.body);
