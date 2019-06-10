@@ -34,14 +34,18 @@ app.use('/books', books);
 * Error Handlers *
 *****************/
 
-app.use((req, res, next) => {
-    res.render('books/page-not-found');
-    res.status(404);
+app.use(function(err, res, next) {
+    let err = new Error("Page Not Found"); 
+    err.status = 404;
+    next(err);
 });
 
-app.use((err, res, next) => {
-    res.render('error');
-    console.error(err);
+app.use(function(err, req, res, next) {
+    if (err.status === 404) {
+        res.render('books/page-not-found');
+    } else {
+        res.render("errors", {error: err});
+    }
 });
 
 module.exports = app;
